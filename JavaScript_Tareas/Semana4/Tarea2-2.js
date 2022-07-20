@@ -31,4 +31,8 @@ fetchData(`${API}/character`)
 .then(data3 => {
     console.log(data3.dimension);
 })
+/* .catch((er)=>){
+    const error = new Error("Error "+ er);
+    console.log(er)
 
+}*/
