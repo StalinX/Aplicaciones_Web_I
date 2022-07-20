@@ -18,32 +18,17 @@ const fetchData = (urlAPi) => {
         xhttp.send();
     })
 }
- 
 fetchData(`${API}/character`)
-.then(res => {
-    //console.log(res)
-    fetchData(`${API}/character/${res.results[0].id}`)
-    console.log(res);
+.then(data1 => {
+   console.log(data1.info.count);
+    return fetchData(`${API}/character/${data1.results[0].id}`)
+})
+.then(data2 => {
+    console.log(data2.name);
+    return fetchData(`${API}/location/${data2.id}`)
+
+})
+.then(data3 => {
+    console.log(data3.dimension);
 })
 
-
-
-const newArray = [];
-fetchData(`${API}/character`, function(error1, data1){
-    if(error1) return console.error(error1);
-    fetchData(`${API}/character/${data1.results[0].id}`, function(error2, data2){
-        if(error2) return console.error(error2);
-        fetchData(`${API}/location/${data2.id}`,function(error3, data3){
-            if(error3) return console.error(error3);
-            newArray.push(data1.info.count)
-            console.log(data1.info.count);
-            console.log(data2.name);
-            console.log(data3.dimension);
-
-
-        })
-    }
-    )
-    
-})
-console.log(newArray);
