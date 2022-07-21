@@ -8,10 +8,7 @@ async function fetchData(urlAPI){
   } catch(error){
       return error;
   }
-}
-
-
-async function resolveRequests(){
+  async function resolveRequests(){
     const data1 = await fetchData(API)
     console.log(data1.info.count)
 
@@ -19,8 +16,12 @@ async function resolveRequests(){
     console.log( data2.name )
 
     const data3 = await fetchData(data2.origin.url)
-    console.log( data3.dimension )
+    console.log( data3.url )
 }
 
 resolveRequests()
+}
+
+
+
 
