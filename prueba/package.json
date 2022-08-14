@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "type": "module",
+    "node-fetch": "^3.2.9",
+    "xhr": "^2.6.0",
+    "xmlhttprequest": "^1.8.0"
+  }
+}
